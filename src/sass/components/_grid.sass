@@ -7,6 +7,8 @@
     font-size: 0
 .container
     max-width: 1200px
+    +MQ(M)
+        max-width: 100%
 .item
     display: block
     width: 100%
@@ -14,78 +16,714 @@
     padding: 1rem
     font-size: 16px
     font-size: 1rem
-
 .col
-    &12
-        width: 100%
-    &11
-        width: 91.66666666666667%
-    &10
-        width: 83.33333333333333%
-    &9
-        width: 75%
-    &8
-        width: 66.66666666666667%
-    &7
-        width: 58.33333333333333%
-    &6
-        width: 50%
-    &5
-        width: 41.66666666666667%
-    &4
-        width: 33.33333333333333%
-    &3
-        width: 25%
-    &2
-        width: 16.66666666666667%
-    &1
-        width: 8.333333333333333%
+    +display(flex)
+    +flex-flow(row)
+    +flex-wrap(wrap)
+    &-cell
+        +flex(1)
 
-.float
-    &l
-        float: left
-    &r
-        float: right
-.nofloat
-    float: none
+$gutter: 1em
+.col
+    &--gutters
+        //margin-left: -$gutter
+        .col
+            &-cell
+                padding-left: $gutter
+            &--nested
+                .col-cell
+                    &:first-of-type
+                        .Demo
+                            margin-right: $gutter
+/* Justify per row*/
+.col
+    &--right
+        +justify-content(flex-end)
+    &--center
+        +justify-content(flex-end)
 
-.clear,
-.clear::after,
-.clear::before
-    clear: both
+    /* Alignment per row */
+    &--top
+        +align-items(flex-start)
+    &--bottom
+        +align-items(flex-end)
+    &--center
+        +align-items(center)
+    /* Alignment per cell */
+    &-cell--top
+        +align-self(flex-start)
+    &-cell--bottom
+        +align-self(flex-end)
+    &-cell--center
+        +align-self(center)
 
-.clear::after,
-.clear::before
-    content: ''
-    display: block
+/*===========================================*/
+/* Base classes for all media - Mobile first */
+.col
+    &--cols
+        &-2 >
+            .col-cell
+                +flex(0 0 100%)
+        &-3 >
+            .col-cell
+                +flex(0 0 100%)
+        &-4 >
+            .col-cell
+                +flex(0 0 100%)
+        &-6 >
+            .col-cell
+                +flex(0 0 cal(50% - #{$gutter}))
+        &-12 >
+            .col-cell
+                +flex(0 0 cal(33.3333% - #{$gutter}))
+    &--holly-grail
+        .aside,
+        .main
+            +flex(1 100%)
+.col
+    &--1of2 >
+        .col-cell
+            &:first-of-type,
+            &:first-of-type
+                +flex(1 100%)
+    &--1of4 >
+        .col-cell
+            &:first-of-type,
+            &:first-of-type
+                +flex(1 100%)
+    &--1of3 >
+        .col-cell
+            &:first-of-type,
+            &:first-of-type
+                +flex(1 100%)
+    &--1of6 >
+        .col-cell
+            &:first-of-type
+                +flex(0 0 50%)
+    &--fit >
+        .col-cell
+            +flex(1)
+    &--full
+        .col-cell
+            +flex(0 0 100%)
 
-.i-b
-    display: inline-block
+@media (min-width: 30em)
+    .col
+        &--cols-4 >
+            .col-cell
+                +flex(0 0 calc(50% - #{$gutter}))
+        &--cols-6 >
+            .col-cell
+                +flex(0 0 calc(50% - #{$gutter}))
+        &--cols-12 >
+            .col-cell
+                +flex(0 0 calc(50% - #{$gutter}))
+        &--holly-grail
+            .aside
+                +flex(1 calc(25% - #{$gutter}))
+        &--1of2 >
+            .col-cell
+                &:first-of-type
+                    +flex(0 0 50%)
+        &--1of6 >
+            .col-cell
+                &:first-of-type
+                    +flex(0 0 30%)
+        &--1of4 >
+            .col-cell
+                &:first-of-type
+                    +flex(0 0 50%)
+        &--1of3 >
+            .col-cell
+                &:first-of-type
+                    +flex(0 0 100%)
+/* Large screens */
+@media (min-width: 48em)
+    .col
+        &--cols-2 >
+            .col-cell
+                +flex(1)
+        &--cols-3 >
+            .col-cell
+                +flex(1)
+        &--cols-4 >
+            .col-cell
+                +flex(1)
+        &--cols-6 >
+            .col-cell
+                +flex(1)
+        &--cols-12
+            .col-cell
+                +flex(1)
+        &--holly-grail
+            .main
+                +flex(2)
+            .aside
+                +flex(1)
+            .aside-1
+                +order(1)
+            .main
+                +order(2)
+            .aside-2
+                +order(3)
+        &--1of2 >
+            .col-cell
+                +flex(0 0 50%)
+        &--1of6 >
+            .col-cell
+                &:first-of-type
+                    +flex(0 0 16.6666%)
+        &--1of4 >
+            .col-cell
+                &:first-of-type
+                    +flex(0 0 25%)
+        &--1of3 >
+            .col-cell
+                &:first-of-type
+                    +flex(0 0 30%)
+        &--gutters
+            &.col--nested
+                .col-cell:first-of-type
+                    margin: 0
+.content
+    padding: .8em 1em 0
+    margin-bottom: 1em
+    &:after
+        content: ""
+        display: block
+        margin-top: .8em
+        height: 1px
+// .col
+//     &12
+//         width: 100%
+//     &11
+//         width: 91.66666666666667%
+//     &10
+//         width: 83.33333333333333%
+//     &9
+//         width: 75%
+//     &8
+//         width: 66.66666666666667%
+//     &7
+//         width: 58.33333333333333%
+//     &6
+//         width: 50%
+//     &5
+//         width: 41.66666666666667%
+//     &4
+//         width: 33.33333333333333%
+//     &3
+//         width: 25%
+//     &2
+//         width: 16.66666666666667%
+//     &1
+//         width: 8.333333333333333%
 
-/* Technique 3 display:flex; */
-.flex
-    display: -webkit-box
-    display: -webkit-flexbox
-    display: -webkit-flex
-    display: flex
+// .float
+//     &l
+//         float: left
+//     &r
+//         float: right
+// .nofloat
+//     float: none
 
-    &-inline
-        display: -ms-inline-flexbox
-        display: -webkit-inline-flex
-        display: inline-flex
-    &-row
-        -webkit-flex-direction: row
-        -ms-flex-direction: row
-        flex-direction: row
-        &-reverse
-            -webkit-flex-direction: row-reverse
-            -ms-flex-direction: row-reverse
-            flex-direction: row-reverse
-    &-column
-        -webkit-flex-direction: column
-        -ms-flex-direction: column
-        flex-direction: column
-        &-reverse
-            -webkit-flex-direction: column-reverse;
-            -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+// .clear,
+// .clear::after,
+// .clear::before
+//     clear: both
+
+// .clear::after,
+// .clear::before
+//     content: ''
+//     display: block
+
+// .i-b
+//     display: inline-block
+
+// /* Technique 3 display:flex; */
+// .flex
+//     +display(flex)
+
+//     &-inline
+//         +display(inline-flex)
+//     &-row
+//         +flex-direction(row)
+//         &-reverse
+//             +flex-direction(row-reverse)
+//     &-column
+//         +flex-direction(column)
+//         &-reverse
+//             +flex-direction(column-reverse)
+//     &-nowrap
+//         +flex-wrap(nowrap)
+//     &-wrap
+//         +flex-wrap(wrap)
+//         &-reverse
+//             +flex-wrap(wrap-reverse)
+// .jc
+//     &-flex
+//         &-start
+//             +justify-content(flex-start)
+//         &-end
+//             +justify-content(flex-end)
+//     &-center
+//         +justify-content(center)
+//     &-space
+//         &-between
+//             +justify-content(space-between)
+//         &-around
+//             +justify-content(space-around)
+// .ai
+//     &-flex
+//         &-start
+//             +align-items(flex-start)
+//         &-end
+//             +align-items(flex-end)
+//     &-center
+//         +align-items(center)
+//     &-baseline
+//         +align-items(baseline)
+//     &-stretch
+//         +align-items(stretch)
+// .ac
+//     &-flex
+//         &-start
+//             +align-content(flex-start)
+//         &-end
+//             +align-content(flex-end)
+//     &-center
+//         +align-content(center)
+//     &-space
+//         &-between
+//             +align-content(space-between)
+//         &-around
+//             +align-content(space-around)
+//     &-stretch
+//         +align-content(stretch)
+// .flex
+//     &-none
+//         +flex(none)
+//     &-auto
+//         +flex(auto)
+// .as
+//     &-flex
+//         &-start
+//             +align-self(flex-start)
+//         &-end
+//             +align-self(flex-end)
+//     &-center
+//         +align-self(center)
+//     &-baseline
+//         +align-self(baseline)
+//     &-stretch
+//         +align-self(stretch)
+//     &-auto
+//         +align-self(auto)
+// /* Vertical & horizontal alingments */
+// .v
+//     &-top
+//         vertical-align: top
+//     &-middle
+//         vertical-align: middle
+//     &-bottom
+//         vertical-align:  bottom
+//     &-baseline
+//         vertical-align: baseline
+
+// @media screen and (min-width: 30em)
+//     .sm
+//         &12
+//             width: 100%
+//         &11
+//             width: 91.66666666666667%
+//         &10
+//             width: 83.33333333333333%
+//         &9
+//             width: 75%
+//         &8
+//             width: 66.66666666666667%
+//         &7
+//             width: 58.33333333333333%
+//         &6
+//             width: 50%
+//         &5
+//             width: 41.66666666666667%
+//         &4
+//             width: 33.33333333333333%
+//         &3
+//             width: 25%
+//         &2
+//             width: 16.66666666666667%
+//         &1
+//             width: 8.333333333333333%
+
+//         /* Technique 1 float left/right; */
+
+//         &-floatl
+//             float: left
+//         &-floatr
+//             float: right
+//         &-nofloat
+//             float: none
+//         &-clear,
+//         &-clear::after,
+//         &-clear::before
+//             clear: both
+//         &-clear::after,
+//         &-clear::before
+//             content: ''
+//             display: block
+//         /* Technique 2 display:inline-block; */
+//         &-i-b
+//             display: inline-block
+//         &-flex
+//             +display(flex)
+//             &-inline
+//                 +display(inline-flex)
+//             &-row
+//                 +flex-direction(row)
+//                 &-reverse
+//                     +flex-direction(row-reverse)
+//             &-column
+//                 +flex-direction(column)
+//                 &-reverse
+//                     +flex-direction(column-reverse)
+//             &-nowrap
+//                 +flex-wrap(nowrap)
+//             &-wrap
+//                 +flex-wrap(wrap)
+//                 &-reverse
+//                     +flex-wrap(wrap-reverse)
+//             &-jc
+//                 &-flex
+//                     &-start
+//                         +justify-content(flex-start)
+//                     &-end
+//                         +justify-content(flex-end)
+//                 &-center
+//                     +justify-content(center)
+//                 &-space
+//                     &-between
+//                         +justify-content(space-between)
+//                     &-around
+//                         +justify-content(space-around)
+//             &-ai
+//                 &-flex
+//                     &-start
+//                         +align-items(flex-start)
+//                     &-end
+//                         +align-items(flex-end)
+//                 &-center
+//                     +align-items(center)
+//                 &-baseline
+//                     +align-items(baseline)
+//                 &-stretch
+//                     +align-items(stretch)
+//             &-ac
+//                 &-flex
+//                     &-start
+//                         +align-content(flex-start)
+//                     &-end
+//                         +align-content(flex-end)
+//                 &-center
+//                     +align-content(center)
+//                 &-space
+//                     &-between
+//                         +align-content(space-between)
+//                     &-around
+//                         +align-content(space-around)
+//                 &-stretch
+//                     +align-content(stretch)
+//             &-flex
+//                 &-none
+//                     +flex(none)
+//                 &-auto
+//                     +flex(auto)
+//             &-as
+//                 &-flex
+//                     &-start
+//                         +align-self(flex-start)
+//                     &-end
+//                         +align-self(flex-end)
+//                 &-center
+//                     +align-self(center)
+//                 &-baseline
+//                     +align-self(baseline)
+//                 &-stretch
+//                     +align-self(stretch)
+//                 &-auto
+//                     +align-self(auto)
+//             &-v
+//                 &-top
+//                     vertical-align: top
+//                 &-middle
+//                     vertical-align: middle
+//                 &-bottom
+//                     vertical-align:  bottom
+//                 &-baseline
+//                     vertical-align: baseline
+
+// @media screen and (min-width: 48em)
+//     .md
+//         &12
+//             width: 100%
+//         &11
+//             width: 91.66666666666667%
+//         &10
+//             width: 83.33333333333333%
+//         &9
+//             width: 75%
+//         &8
+//             width: 66.66666666666667%
+//         &7
+//             width: 58.33333333333333%
+//         &6
+//             width: 50%
+//         &5
+//             width: 41.66666666666667%
+//         &4
+//             width: 33.33333333333333%
+//         &3
+//             width: 25%
+//         &2
+//             width: 16.66666666666667%
+//         &1
+//             width: 8.333333333333333%
+
+//         /* Technique 1 float left/right; */
+
+//         &-floatl
+//             float: left
+//         &-floatr
+//             float: right
+//         &-nofloat
+//             float: none
+//         &-clear,
+//         &-clear::after,
+//         &-clear::before
+//             clear: both
+//         &-clear::after,
+//         &-clear::before
+//             content: ''
+//             display: block
+//         /* Technique 2 display:inline-block; */
+//         &-i-b
+//             display: inline-block
+//         &-flex
+//             +display(flex)
+//             &-inline
+//                 +display(inline-flex)
+//             &-row
+//                 +flex-direction(row)
+//                 &-reverse
+//                     +flex-direction(row-reverse)
+//             &-column
+//                 +flex-direction(column)
+//                 &-reverse
+//                     +flex-direction(column-reverse)
+//             &-nowrap
+//                 +flex-wrap(nowrap)
+//             &-wrap
+//                 +flex-wrap(wrap)
+//                 &-reverse
+//                     +flex-wrap(wrap-reverse)
+//             &-jc
+//                 &-flex
+//                     &-start
+//                         +justify-content(flex-start)
+//                     &-end
+//                         +justify-content(flex-end)
+//                 &-center
+//                     +justify-content(center)
+//                 &-space
+//                     &-between
+//                         +justify-content(space-between)
+//                     &-around
+//                         +justify-content(space-around)
+//             &-ai
+//                 &-flex
+//                     &-start
+//                         +align-items(flex-start)
+//                     &-end
+//                         +align-items(flex-end)
+//                 &-center
+//                     +align-items(center)
+//                 &-baseline
+//                     +align-items(baseline)
+//                 &-stretch
+//                     +align-items(stretch)
+//             &-ac
+//                 &-flex
+//                     &-start
+//                         +align-content(flex-start)
+//                     &-end
+//                         +align-content(flex-end)
+//                 &-center
+//                     +align-content(center)
+//                 &-space
+//                     &-between
+//                         +align-content(space-between)
+//                     &-around
+//                         +align-content(space-around)
+//                 &-stretch
+//                     +align-content(stretch)
+//             &-flex
+//                 &-none
+//                     +flex(none)
+//                 &-auto
+//                     +flex(auto)
+//             &-as
+//                 &-flex
+//                     &-start
+//                         +align-self(flex-start)
+//                     &-end
+//                         +align-self(flex-end)
+//                 &-center
+//                     +align-self(center)
+//                 &-baseline
+//                     +align-self(baseline)
+//                 &-stretch
+//                     +align-self(stretch)
+//                 &-auto
+//                     +align-self(auto)
+//             &-v
+//                 &-top
+//                     vertical-align: top
+//                 &-middle
+//                     vertical-align: middle
+//                 &-bottom
+//                     vertical-align:  bottom
+//                 &-baseline
+//                     vertical-align: baseline
+// @media screen and (min-width: 64em)
+//     .lg
+//         &12
+//             width: 100%
+//         &11
+//             width: 91.66666666666667%
+//         &10
+//             width: 83.33333333333333%
+//         &9
+//             width: 75%
+//         &8
+//             width: 66.66666666666667%
+//         &7
+//             width: 58.33333333333333%
+//         &6
+//             width: 50%
+//         &5
+//             width: 41.66666666666667%
+//         &4
+//             width: 33.33333333333333%
+//         &3
+//             width: 25%
+//         &2
+//             width: 16.66666666666667%
+//         &1
+//             width: 8.333333333333333%
+
+//         /* Technique 1 float left/right; */
+
+//         &-floatl
+//             float: left
+//         &-floatr
+//             float: right
+//         &-nofloat
+//             float: none
+//         &-clear,
+//         &-clear::after,
+//         &-clear::before
+//             clear: both
+//         &-clear::after,
+//         &-clear::before
+//             content: ''
+//             display: block
+//         /* Technique 2 display:inline-block; */
+//         &-i-b
+//             display: inline-block
+//         &-flex
+//             +display(flex)
+//             &-inline
+//                 +display(inline-flex)
+//             &-row
+//                 +flex-direction(row)
+//                 &-reverse
+//                     +flex-direction(row-reverse)
+//             &-column
+//                 +flex-direction(column)
+//                 &-reverse
+//                     +flex-direction(column-reverse)
+//             &-nowrap
+//                 +flex-wrap(nowrap)
+//             &-wrap
+//                 +flex-wrap(wrap)
+//                 &-reverse
+//                     +flex-wrap(wrap-reverse)
+//             &-jc
+//                 &-flex
+//                     &-start
+//                         +justify-content(flex-start)
+//                     &-end
+//                         +justify-content(flex-end)
+//                 &-center
+//                     +justify-content(center)
+//                 &-space
+//                     &-between
+//                         +justify-content(space-between)
+//                     &-around
+//                         +justify-content(space-around)
+//             &-ai
+//                 &-flex
+//                     &-start
+//                         +align-items(flex-start)
+//                     &-end
+//                         +align-items(flex-end)
+//                 &-center
+//                     +align-items(center)
+//                 &-baseline
+//                     +align-items(baseline)
+//                 &-stretch
+//                     +align-items(stretch)
+//             &-ac
+//                 &-flex
+//                     &-start
+//                         +align-content(flex-start)
+//                     &-end
+//                         +align-content(flex-end)
+//                 &-center
+//                     +align-content(center)
+//                 &-space
+//                     &-between
+//                         +align-content(space-between)
+//                     &-around
+//                         +align-content(space-around)
+//                 &-stretch
+//                     +align-content(stretch)
+//             &-flex
+//                 &-none
+//                     +flex(none)
+//                 &-auto
+//                     +flex(auto)
+//             &-as
+//                 &-flex
+//                     &-start
+//                         +align-self(flex-start)
+//                     &-end
+//                         +align-self(flex-end)
+//                 &-center
+//                     +align-self(center)
+//                 &-baseline
+//                     +align-self(baseline)
+//                 &-stretch
+//                     +align-self(stretch)
+//                 &-auto
+//                     +align-self(auto)
+//             &-v
+//                 &-top
+//                     vertical-align: top
+//                 &-middle
+//                     vertical-align: middle
+//                 &-bottom
+//                     vertical-align:  bottom
+//                 &-baseline
+//                     vertical-align: baseline

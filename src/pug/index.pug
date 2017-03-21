@@ -1,10 +1,42 @@
 extends ./base/layout.pug
 
 block content
-    main
+    main.bgc--skyBlue
         section.container
-            article.item.floatl.col6
-                h2 prueba
-            article.item.floatl.col6
-                h2 prueba
-        h2 content
+            .item
+                .col.col--gutters.col--1of4
+                    article.col-cell
+                        .content.bgc--white.center
+                            .bdr_circle.mg_bottom--x20
+                                span.user(style="background-image: url('image/user.png');")
+                            .title.cl--gray
+                                h1 Sams
+                            .subtitle.mg_bottom--x10
+                                h3 Fron End / Web Developer
+                            .subtitle.txt_upper.cl--silver.mg_bottom--x20
+                                h4 samsdial
+                            button.btn.btn_site.btn_circle--x12.mg_bottom--x20 Contactar
+                            .data.mg_bottom--x20
+                                h4.cl--silver  Celular
+                                h3 321 267 9283
+
+                    article.col-cell
+                        .content.bgc--white
+                            .title
+                                h2
+                                    b Sams
+                            .subtitle
+                                h1 treinta dos
+                                h2 Veinti ocho
+                                h3 Veinti cuatri
+                                h4 veinte
+                                h5 Diesisés
+                                h6 Doce
+                            //- h3 fron end / developer
+        section.container.center
+            article.item.col12.sm12.md12.lg12
+                h1 Columna 12
+            article.item.col11.sm11.md11.lg11
+                h1 Columna 11
+            article.item.col2.sm2.md2.lg2
+                h1 Columna 2
