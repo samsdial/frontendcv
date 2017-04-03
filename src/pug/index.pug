@@ -3,10 +3,9 @@ extends ./base/layout.pug
 block content
     main.bgc--skyBlue
         section.container
-            .item
-                .col.col--gutters.col--1of4
-                    article.col-cell
-                        .content.bgc--white
+            .Grid.Grid--gutters.Grid--1of3.Grid--nested
+                .Grid-cell
+                    .content.bgc--white
                             .user.center
                                 .bdr_circle.mg_bottom--x20
                                     span.user(style="background-image: url('image/user.png');")
@@ -40,14 +39,14 @@ block content
                                         span.cl--silver.icon.icon_size--twitter.icon-twitter
                                         .info
                                             h3 twitter.com/monkey2men
-
-                    article.col-cell
-                        .content.bgc--white
-                            .title.mg_top--x20.mg_bottom--x10
-                                h2 Recomendados
-                            hr.hr.hr_site.mg_bottom--x20
-                            .col-cell
-                                .col.col--gutters.col--1of3.col--nested
+                .Grid-cell
+                    .content.bgc--white
+                        .Grid.Grid--gutters.Grid--full.Grid--nested
+                            .Grid-cell
+                                .content.bgc--white
+                                    .title.mg_top--x20.mg_bottom--x10
+                                        h2 Portafolio
+                                    hr.hr.hr_site.mg_bottom--x20
                                     .slider.mg_bottom--x20
                                         section
                                             .img.mg_bottom--x20
@@ -89,26 +88,10 @@ block content
                                             .info--data.cl--silver
                                                 h4 15/01/2017
                                             a.btn_ghost(href="/")
-                            .col12
-                                .title
-                                    h2
-                                        b Sams
-                                .subtitle
-                                    h1 treinta dos
-                                    h2 Veinti ocho
-                                    h3 Veinti cuatro
-                                    h4 veinte
-                                    h5 Diesisés
-                                h6 Doce
-                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut as aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt  in culpa qui officia deserunt mollit anim id est laborum.
-                                span.icon.icon-education
-                                span.icon.icon-github
-                                span.icon.icon-github
-                            //- h3 fron end / developer
-        section.container.center
-            article.item.col12.sm12.md12.lg12
-                h1 Columna 12
-            article.item.col11.sm11.md11.lg11
-                h1 Columna 11
-            article.item.col2.sm2.md2.lg2
-                h1 Columna 2
+                        .Grid.Grid--gutters.Grid--1of2.Grid--nested
+                            .Grid-cell
+                                .content.bgc--white
+                                    h2 into prueba
+                            .Grid-cell
+                                .content.bgc--white
+                                    h2 into prueba
