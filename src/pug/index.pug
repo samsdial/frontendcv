@@ -3,22 +3,23 @@ extends ./base/layout.pug
 block content
     main.bgc--skyBlue
         section.container
-            .Grid.Grid--gutters.Grid--1of3.Grid--nested
+            .Grid.Grid--gutters.Grid--1of4.Grid--nested
                 .Grid-cell
                     .content.bgc--white
                             .user.center
-                                .bdr_circle.mg_bottom--x20
-                                    span.user(style="background-image: url('image/user.png');")
+                                .bdr_circle.mg_top--x20.mg_bottom--x20
+                                    span.user(style="background-image: url('image/sams.png');")
                                 .title.cl--gray
-                                    h1 Sams
+                                    h1 Sergio Andrés Martínez Espitia
                                 .subtitle.mg_bottom--x10
                                     h3 Fron End / Web Developer
                                 .subtitle.txt_upper.cl--silver.mg_bottom--x20
                                     h4 samsdial
                                 button.btn.btn_site.btn_circle--x12.mg_bottom--x20 Contactar
-                            .data.mg_bottom--x100.center
+                            .data.mg_bottom--x20.center
                                 h4.cl--silver  Celular
                                 h3 321 267 9283
+                            .data.mg_bottom--x150.center
                                 ul.list_data.list--inline
                                     li
                                         span.cl--silver.icon_size--site.icon.icon-github
@@ -47,67 +48,99 @@ block content
                                     .title.txt_upper.mg_top--x20.mg_bottom--x10
                                         h2 Portafolio
                                     hr.hr.hr_site.mg_bottom--x20
-                                    .slider.mg_bottom--x20
-                                        section
+                                    .Grid.Grid--gutters.Grid--cols-4
+                                        section.Grid-cell
                                             .img.mg_bottom--x20
-                                                img(src="image/user.png")
+                                                img(src="image/porfolio/viajero.png")
                                             .info--title.mg_bottom--x10
                                                 h3 Viajero 24 // Web App
-                                            .info--data.cl--silver
+                                            .info--data.cl--silver.mg_bottom--x20
                                                 h4 15/01/2017
-                                            a.btn_ghost(href="/")
-                                        section
+                                            a.btn_ghost(href="https://viajero24.com/", target="_blank")
+                                        section.Grid-cell
                                             .img.mg_bottom--x20
-                                                img(src="image/user.png")
+                                                img(src="image/porfolio/hatoganadero.png")
                                             .info--title.mg_bottom--x10
                                                 h3 Hatoganadero // Web App
-                                            .info--data.cl--silver
+                                            .info--data.cl--silver.mg_bottom--x20
                                                 h4 20/06/2017
-                                            a.btn_ghost(href="/")
-                                        section
+                                            a.btn_ghost(href="https://col.hatoganadero.com", target="_blank")
+                                        section.Grid-cell
                                             .img.mg_bottom--x20
-                                                img(src="image/user.png")
+                                                img(src="image/porfolio/oldjack.png")
                                             .info--title.mg_bottom--x10
-                                                h3 Viajero 24 // Web App
-                                            .info--data.cl--silver
-                                                h4 15/01/2017
-                                            a.btn_ghost(href="/")
-                                        section
+                                                h3 Oldjack // Ecommerce
+                                            .info--data.cl--silver.mg_bottom--x20
+                                                h4 15/03/2017
+                                            a.btn_ghost(href="http://oldjackangus.com/", target="_blank")
+                                        section.Grid-cell
                                             .img.mg_bottom--x20
-                                                img(src="image/user.png")
+                                                img(src="image/porfolio/cgr.png")
                                             .info--title.mg_bottom--x10
                                                 h3 CRG // Sitio Web
-                                            .info--data.cl--silver
+                                            .info--data.cl--silver.mg_bottom--x20
                                                 h4 17/03/2017
-                                            a.btn_ghost(href="/")
-                                        section
-                                            .img.mg_bottom--x20
-                                                img(src="image/user.png")
-                                            .info--title.mg_bottom--x10
-                                                h3 Viajero 24 // Web App
-                                            .info--data.cl--silver
-                                                h4 15/01/2017
-                                            a.btn_ghost(href="/")
+                                            a.btn_ghost(href="http://serverlequar.com/cgr", target="_blank")
                         .Grid.Grid--gutters.Grid--1of2.Grid--nested
                             .Grid-cell
                                 .content.bgc--white
-                                    .title.txt_upper.mg_bottom--x20
+                                    .title.txt_upper.mg_bottom--x10
                                         h2 Experiencia Laboral
                                     hr.hr.hr_site.mg_bottom--x20
                                     ul.list.list_infoHZ
                                         li.active
-                                            .title.cl--silver
-                                                h3 Title
-                                            .subtitle
+                                            .title.cl--silver.mg_bottom--x5
+                                                h3 2017 - Presente
+                                            .subtitle.mg_bottom--x5
                                                 span.cl--silver.icon.icon_size--sitex2.icon-work
-                                                h3 Subtitle
+                                                h3 Front end development
+                                            .empresa.cl--blue
+                                                h4 Lequar / www.lequar.com
                                         li.done
-                                            .title
-                                                h2 Title
+                                            .title.cl--silver.mg_bottom--x5
+                                                h3 2011 - 2013
+                                            .subtitle.mg_bottom--x5
+                                                span.cl--silver.icon.icon_size--sitex2.icon-work
+                                                h3 Front end development
+                                            .empresa.cl--blue
+                                                h4 Ideodromo / www.ideodromo.com
+                                        li.done
+                                            .title.cl--silver.mg_bottom--x5
+                                                h4 2010 - 2011
+                                            .subtitle.mg_bottom--x5
+                                                span.cl--silver.icon.icon_size--sitex2.icon-work
+                                                h4 Desarrollo multimedia
+                                            .empresa.cl--blue
+                                                h4 Colombia Elearnig / www.colombiaelearning.com
 
                             .Grid-cell
                                 .content.bgc--white
-                                    .title.txt_upper.mg_bottom--x20
-                                        h2 into prueba
+                                    .title.txt_upper.mg_bottom--x10
+                                        h2 Educación
                                     hr.hr.hr_site.mg_bottom--x20
+                                    ul.list.list_infoHZ
+                                        li.active
+                                            .title.cl--silver.mg_bottom--x5
+                                                h3 2015
+                                            .subtitle.mg_bottom--x5
+                                                span.cl--silver.icon.icon_size--sitex2.icon-education
+                                                h3 Ingeniería Multimedia
+                                            .empresa.cl--blue
+                                                h4 Universidad Militar Nueva Granada (UMNG)
+                                        li.done
+                                            .title.cl--silver.mg_bottom--x5
+                                                h3 2008
+                                            .subtitle.mg_bottom--x5
+                                                span.cl--silver.icon.icon_size--sitex2.icon-education
+                                                h3 Animación y modelado en 3D max
+                                            .empresa.cl--blue
+                                                h4 Naska Digital
+                                        li.done
+                                            .title.cl--silver.mg_bottom--x5
+                                                h3 2005 - 2007
+                                            .subtitle.mg_bottom--x5
+                                                span.cl--silver.icon.icon_size--sitex2.icon-education
+                                                h3 Tecnólogo Profesional en Diseño Gráfico
+                                            .empresa.cl--blue
+                                                h4 Corp. Inter. Para el Desarrollo Educativo CIDE
 

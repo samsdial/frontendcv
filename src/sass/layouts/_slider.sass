@@ -5,11 +5,16 @@
 //     +MQ(L)
 //         width: 1186px
 .slider
-    width: 965px
-    +MQ(S)
-        width: 925px
-    +MQ(L)
+    @media (min-width: 0px)
+        width: 320px
+    @media (min-width: 600px)
+        width: 620px
+    @media (min-width: 991px)
+        width: 620px
+    @media (min-width: 1024px)
         width: 1039px
+    // +MQ(L)
+    //     width: 1039px
     &-slide
         margin: 12px
     section
