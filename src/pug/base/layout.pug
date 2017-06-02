@@ -44,7 +44,8 @@ html(lang="es")
             link(href='css/normalize.css', rel="stylesheet", media="screen")
             link(href='css/style.css', rel="stylesheet", media="screen")
             link(href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900", rel="stylesheet")
-            link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700", rel="stylesheet")
+            link(href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900", rel="stylesheet")
+            link(href="https://fonts.googleapis.com/css?family=Tinos:700", rel="stylesheet")
         block top-script
             script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
             //- script(src="js/jquery.js")
@@ -54,9 +55,12 @@ html(lang="es")
             script(src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js")
             <![endif]-->
     body
-        include ./_includes/_header.pug
+        //- include ./_includes/_header.pug
         block content
-        include ./_includes/_footer.pug
+        //- include ./_includes/_footer.pug
         block bottom-script
-            script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js")
+            script(src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js")
+            script(src="js/anime.min.js")
+            script(src="js/enquire.min.js")
+            script(src="js/tabsnav.js")
             script(src='js/main.js')
