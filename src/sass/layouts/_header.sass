@@ -57,3 +57,158 @@
     &:nth-child(4)
             .tabs_nav--bar
                 background: #4C5052
+.menu
+    position: fixed
+    top: 0px
+    left: 0px
+    height: 100vh
+    width: 320px
+    z-index: 99
+
+    .block-revealer__content
+        height: 100%
+        position: relative
+
+    &_inner
+        width: 100%
+        height: 100%
+        list-style-type: none
+        padding: 20vh 2.9em
+        margin: 0px
+        background-color: #fcf652
+        overflow: hidden
+
+    &_item
+        padding: 0.14em
+
+    &--open
+        .menu_item
+        .btn--close
+            opacity: 1
+            transform: translate3d($white)
+            transition: opacity 0.4s 0.135s, transform 0.4s 0.135s cubic-bezier(0.645, 0.045, 0.355, 1)
+
+    .menu_link
+      font-size: 3.5vw
+      color: #393A3E
+      font-weight: 900
+      .submenu_link
+        font-size: 2.5vw
+        color: #393A3E
+        font-weight: bold
+.hamburger
+    width: 64px
+    height: 64px
+    display: block
+    position: absolute
+    cursor: pointer
+    top: 1.25em
+    left: 2em
+    z-index: 110
+    border-radius: 50%
+    background-color: $white
+    pointer-events: auto
+    -webkit-tap-highlight-color: rgba($white, 0)
+
+    &:after
+        width: 64px
+        height: 64px
+        box-sizing: border-box
+        content: ''
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        pointer-events: none
+        border: 4px solid $white
+        border-radius: 50%
+        animation-duration: 1.2s
+        animation-name: intervalHamburgerBorder
+        animation-iteration-count: infinite
+
+.hamburger
+    &_line
+        width: 28px
+        height: 2px
+        overflow: hidden
+        position: absolute
+        z-index: 10
+
+    &_line
+        transition-duration: 0.6s
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1)
+        &--01
+            top: 24.6px
+        &--02,
+        &--cross01,
+        &--cross02
+            top: 31px
+        &--03
+            top: 37.4px
+        &--01,
+        &--02,
+        &--03,
+        &--cross01,
+        &--cross02
+            left: 18px
+    &_line
+        &-in
+            width: 84px
+            height: 2px
+            position: absolute
+            top: 0px
+            left: 0px
+            &:before
+                left: -56px
+
+            &:after
+                left: 0
+
+            &:before,
+            &:after
+                width: 28px
+                height: 2px
+                content: ''
+                display: block
+                position: absolute
+                top: 0
+                background-color: $black
+
+            &:before,
+            &:after
+                transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1)
+                transition-property: transform, -webkit-transform
+        &-in
+            transition-duration: 0.6s
+            transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1)
+            &--01
+                transition: 0.2s
+                &:before,
+                &:after
+                    transition-delay: 0.1s
+            &--02
+                transition: 0.25s
+                &:before,
+                &:after
+                    transition-delay: 0.05s
+            &--03
+                transition: 0.3s
+                &:before,
+                &:after
+                    transition-delay: 0.1s
+    &:hover
+        &.hamburger_line-in
+            &:before,
+            &:after
+                transform: translateX(200%)
+            &--01:before,
+            &--01:after,
+            &--02:before,
+            &--02:after,
+            &--03:before,
+            &--03:after
+                transition-duration: 1s
+            &:after,
+            &:before
+                transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1)
+                transition-property: transform, -webkit-transform
